@@ -89,3 +89,129 @@ Migrating to CreatePosts (20220318181432)
   ↳ bin/rails:9
   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+Started GET "/users/new" for ::1 at 2022-03-18 14:28:24 -0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/appacademystudent/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.7/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 1121ms (Views: 1078.6ms | ActiveRecord: 16.2ms)
+
+
+Started POST "/users" for ::1 at 2022-03-18 14:28:35 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"username"=>"raz", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/11d5f2b65bdd3437/variables" for ::1 at 2022-03-18 14:28:35 -0400
+Started GET "/users/new" for ::1 at 2022-03-18 14:29:41 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 100ms (Views: 98.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-03-18 14:29:45 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"y2C18lz1VSLn2b64NM439aUX92AWSUYiV7fu+ILzvfERRa8vSFnfuO0JyEj+evv+BrCMoI1sDNa4cDYccn26xQ==", "user"=>{"username"=>"raz", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16
+  [1m[36mUser Exists (5.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "raz"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16
+  [1m[36mUser Create (4.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "raz"], ["password_digest", "$2a$12$NIM85S5POk4dbCPSI6Ylze2kbel5hiZFmFJdu1tXNcKDdd8lD9Y6q"], ["session_token", "sR_3o7ixL6vsD0x16Jlacg"], ["created_at", "2022-03-18 18:29:45.893845"], ["updated_at", "2022-03-18 18:29:45.893845"]]
+  ↳ app/controllers/users_controller.rb:16
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:16
+Redirected to http://localhost:3000/users
+Completed 302 Found in 378ms (ActiveRecord: 14.9ms)
+
+
+Started GET "/users" for ::1 at 2022-03-18 14:29:45 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 90ms (Views: 88.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2022-03-18 14:29:58 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 67ms (Views: 66.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-03-18 14:30:00 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"+ghRIWA7ncuVWhReFLKzMSnOz9qaJ6sLpJEJGGlcT28gLUv8dJcXUZ+KYq7eBn86imm0GgEC4f9LVtH8mdJIWw==", "user"=>{"username"=>"raz", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "raz"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:16
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 447ms (Views: 89.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users" for ::1 at 2022-03-18 14:30:43 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 116ms (Views: 115.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2022-03-18 14:30:45 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 67ms (Views: 65.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-03-18 14:30:48 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"+ghRIWA7ncuVWhReFLKzMSnOz9qaJ6sLpJEJGGlcT28gLUv8dJcXUZ+KYq7eBn86imm0GgEC4f9LVtH8mdJIWw==", "user"=>{"username"=>"raz", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "raz"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:16
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 386ms (Views: 63.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users" for ::1 at 2022-03-18 14:31:44 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 84ms (Views: 83.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2022-03-18 14:31:48 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 88ms (Views: 86.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-03-18 14:31:53 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"AesDqtAlueypbB0sqbpjxWqqq0msPnw9FykpvBuwlUrbzhl3xIkzdqO8a9xjDq/OyQ3QiTcbNsn47vFY6z6Sfg==", "user"=>{"username"=>"raz", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "raz"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16
+  [1m[35m (3.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:16
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 550ms (Views: 135.5ms | ActiveRecord: 4.8ms)
+
+
