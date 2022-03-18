@@ -1,11 +1,13 @@
 class ApplicationController < ActionController::Base
-  
+  helper_method :logged_in?, :current_user
+
   def login!(user)
     session[:session_token] = user.session_token
   end
 
   def logged_in?
     !!current_user
+    
   end
 
   def log_out
